@@ -1,5 +1,5 @@
 <?php
 
-$data=$query->fetchAll('tasks');
+$users=$database->fetchAll('users');
 
 require "views/index.view.php";

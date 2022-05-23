@@ -1,6 +1,5 @@
 <?php
 
-$route->register([
-    ""=>"controller/IndexController.php",
-    "about"=>"controller/AboutController.php",
-]);
+$route->get("","controller/IndexController.php");
+$route->get("about","controller/AboutController.php");
+$route->post("name","controller/addName.php");

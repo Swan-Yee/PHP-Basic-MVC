@@ -15,4 +15,26 @@ class QueryBuilder{
             echo $e->getMessage();
         }
     }
+
+    public function query($dataArr,$table){
+        $getDataKey=array_keys($dataArr);
+        
+        $cols=implode(',',$getDataKey);
+        $QuestionMark="";
+        foreach($getDataKey as $key){
+            $QuestionMark.="?,";
+        };
+        $QuestionMark=rtrim($QuestionMark,",");
+        $sql="insert into $table ($cols) values ($QuestionMark)";
+        $statement=$this->pdo->prepare($sql);
+
+        $getArrayValue=array_values($dataArr);
+        $statement->execute($getArrayValue);
+    }
+}
+
+function dd($data){
+    echo "<pre>";
+    var_dump($data);
+    die();
 }
