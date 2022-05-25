@@ -1,5 +1,5 @@
 <?php
 
-$users=$database->fetchAll('users');
+$users=App::get('database')->fetchAll('users');
 
-require "views/index.view.php";
+view('index',['users'=>$users]);
