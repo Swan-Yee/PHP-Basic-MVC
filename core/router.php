@@ -3,7 +3,8 @@
 class Router{
     protected $routes=[
         "GET"=>[],
-        "POST"=>[]
+        "POST"=>[],
+        "PUT"=>[]
     ];
     public static function load(){
         $route=new Router;
@@ -20,6 +21,10 @@ class Router{
 
     public function post($uri,$controller){
         $this->routes['POST'][$uri]=$controller;
+    }
+
+    public function put($uri,$controller){
+        $this->routes['PUT'][$uri]=$controller;
     }
 
     public function direct($uri,$method){

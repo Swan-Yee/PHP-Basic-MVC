@@ -39,12 +39,15 @@ class QueryBuilder{
         return $result;
     }
 
-    public function update($id,$dataArr,$table){
-        $getDataKey=array_keys($dataArr);
-        $cols=implode('=?,',$getDataKey);
-        $sql = "UPDATE $table SET ($cols) WHERE id=$id";
-        $statement= $this->pdo->prepare($sql);
-        $getArrayValue=array_values($dataArr);
-        $statement->execute($getArrayValue);
+    public function update($dataArr,$table){
+        // dd($dataArr['name']);
+
+        $data = [
+            'name' => $dataArr['name'],
+            'id' => $dataArr['id'],
+        ];
+        $sql = "UPDATE $table SET name=? WHERE id=?";
+        $stmt= $this->pdo->prepare($sql);
+        $stmt->execute($data);
     }
 }
