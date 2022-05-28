@@ -16,7 +16,5 @@ function getId(){
     $url = $_SERVER['REQUEST_URI'];
     $url_components = parse_url($url);
     parse_str($url_components['query'], $params);
-    $id=$params['id'];
-
-    return $id;
+    return $params['id'];
 }

@@ -1,8 +1,5 @@
 <?php
 
-getId();
-
-
-$data=App::get('database')->edit($id,'users');
+$data=App::get('database')->edit(getId(),'users');
 
 view('edit',['data'=>$data]);

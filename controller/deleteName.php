@@ -1,7 +1,5 @@
 <?php
 
-getId();
-
-$data=App::get('database')->delete($id,'users');
+$data=App::get('database')->delete(getId(),'users');
 
 header('Location: /');
