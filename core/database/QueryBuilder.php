@@ -39,18 +39,27 @@ class QueryBuilder{
         return $result;
     }
 
-    public function update($dataArr,$table){
+    public function update($dataArr,$table,$id='id'){
         $getDataKey=array_keys($dataArr);
         $QuestionMark="";
         $data= [];
+        
         for ($i=0; $i < count($getDataKey); $i++) { 
             $QuestionMark.="$getDataKey[$i]=:$getDataKey[$i],";
             $data += [$getDataKey[$i]=>$dataArr[$getDataKey[$i]]];
         }
-        $QuestionMark=str_replace("id=:id,", "","$QuestionMark");
+
+        $QuestionMark=str_replace("$id=:$id,", "","$QuestionMark");
         $QuestionMark=substr($QuestionMark, 0, -1);
-        $sql = "UPDATE $table SET $QuestionMark WHERE id=:id";
+
+        $sql = "UPDATE $table SET $QuestionMark WHERE $id=:$id";
         $stmt= $this->pdo->prepare($sql);
         $stmt->execute($data);
+    }
+
+    public function delete($id,$table){
+        $sql = "DELETE FROM $table WHERE id=?";
+        $stmt= $this->pdo->prepare($sql);
+        $stmt->execute([$id]);
     }
 }

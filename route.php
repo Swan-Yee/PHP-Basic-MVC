@@ -5,4 +5,5 @@ $route->get("about","controller/AboutController.php");
 $route->post("name","controller/addName.php");
 $route->get("edit-name","controller/editName.php");
 $route->post("update","controller/updateName.php");
+$route->post("delete","controller/deleteName.php");
 

@@ -1,8 +1,7 @@
 <?php
-$url = $_SERVER['REQUEST_URI'];
-$url_components = parse_url($url);
-parse_str($url_components['query'], $params);
-$id=$params['id'];
+
+getId();
+
 
 $data=App::get('database')->edit($id,'users');
 
