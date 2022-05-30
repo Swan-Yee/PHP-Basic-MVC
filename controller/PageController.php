@@ -1,5 +1,5 @@
 <?php
-
+use core\App;
 class PageController{
     public function index()
     {
