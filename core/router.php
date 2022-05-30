@@ -3,8 +3,7 @@
 class Router{
     protected $routes=[
         "GET"=>[],
-        "POST"=>[],
-        "PUT"=>[]
+        "POST"=>[]
     ];
     public static function load(){
         $route=new Router;
@@ -23,14 +22,17 @@ class Router{
         $this->routes['POST'][$uri]=$controller;
     }
 
-    public function put($uri,$controller){
-        $this->routes['PUT'][$uri]=$controller;
+    public function direct($uri,$method){
+        if(!array_key_exists($uri,$this->routes[$method])){
+            die('404 Page');
+        }
+        $explore = explode('@',$this->routes[$method][$uri]);
+        $this->callMethod($explore[0],$explore[1]);
     }
 
-    public function direct($uri,$method){
-        if(array_key_exists($uri,$this->routes[$method])){
-            return $this->routes[$method][$uri];
-        }
-        die('404 Page');
+    public function callMethod($class,$method)
+    {
+        $class=new $class;
+        $class->$method();
     }
 }
