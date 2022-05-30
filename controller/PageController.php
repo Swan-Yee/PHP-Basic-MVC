@@ -1,5 +1,8 @@
 <?php
+namespace controller;
+
 use core\App;
+
 class PageController{
     public function index()
     {

@@ -12,10 +12,10 @@ class ComposerStaticInit5cfad74241bd54d780e60b16494902fe
         'Composer\\Autoload\\ComposerStaticInit5cfad74241bd54d780e60b16494902fe' => __DIR__ . '/..' . '/composer/autoload_static.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Connection' => __DIR__ . '/../..' . '/core/database/connect.php',
-        'PageController' => __DIR__ . '/../..' . '/controller/PageController.php',
         'QueryBuilder' => __DIR__ . '/../..' . '/core/database/QueryBuilder.php',
         'Request' => __DIR__ . '/../..' . '/core/request.php',
         'Router' => __DIR__ . '/../..' . '/core/router.php',
+        'controller\\PageController' => __DIR__ . '/../..' . '/controller/PageController.php',
         'core\\App' => __DIR__ . '/../..' . '/core/App.php',
     );
 

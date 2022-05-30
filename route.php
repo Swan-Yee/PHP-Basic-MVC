@@ -1,16 +1,10 @@
 <?php
+use controller\PageController;
 
-// $route->get("","controller/IndexController.php");
-// $route->get("about","controller/AboutController.php");
-// $route->post("name","controller/addName.php");
-// $route->get("edit-name","controller/editName.php");
-// $route->post("update","controller/updateName.php");
-// $route->post("delete","controller/deleteName.php");
-
-$route->get("","PageController@index");
-$route->get("about","PageController@about");
-$route->post("name","PageController@addName");
-$route->get("edit-name","PageController@editName");
-$route->post("update","PageController@updateName");
-$route->post("delete","PageController@deleteName");
+$route->get("",[PageController::class,'index']);
+$route->get("about",[PageController::class,'about']);
+$route->post("name",[PageController::class,'addName']);
+$route->get("edit-name",[PageController::class,'editName']);
+$route->post("update",[PageController::class,'updateName']);
+$route->post("delete",[PageController::class,'deleteName']);
 
