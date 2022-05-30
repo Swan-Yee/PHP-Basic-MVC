@@ -1,7 +1,5 @@
 <?php
 
-App::get('database')->update($_POST,'users');
-
-// header('Location: /');
+App::get('database')->update(request(),'users');
 
 redirect('/');
