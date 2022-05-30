@@ -18,3 +18,7 @@ function getId(){
     parse_str($url_components['query'], $params);
     return $params['id'];
 }
+
+function redirect($url){
+    header('Location:'.$url);
+};
