@@ -13,10 +13,7 @@ function view($name,$data=[]){
 }
 
 function getId(){
-    $url = $_SERVER['REQUEST_URI'];
-    $url_components = parse_url($url);
-    parse_str($url_components['query'], $params);
-    return $params['id'];
+    return $_GET['id'];
 }
 
 function redirect($url){
